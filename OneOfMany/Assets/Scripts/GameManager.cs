@@ -15,14 +15,16 @@ public class GameManager : MonoBehaviour {
     {
         instance = this;
         Vector3 pos = Vector3.zero;
-        for (int i = 0; i < 10850; i++) {
+        for (int i = 0; i < 5000; i++) {
             GameObject nd = Instantiate(nodePrefab, pos,Quaternion.identity);
             nd.transform.localPosition = pos;
             nd.transform.SetParent(nodeParent);
-            if(i%139==0 && i!=0)
-                pos = new Vector3(0, pos.y, pos.z+10);
+            if (pos.x == 140)
+                pos = new Vector3(0, pos.y, pos.z + 5);
+            else if (pos.z <= 80)
+                pos = new Vector3(pos.x + 5, pos.y, pos.z);
             else
-                pos = new Vector3(pos.x + 10, pos.y, pos.z);
+                break;
         }
     }
 

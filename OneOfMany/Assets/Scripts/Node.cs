@@ -73,6 +73,7 @@ public class Node : MonoBehaviour {
     public void Test() {
         //if(rend.material.color != hoverColor)
             rend.material.color = hoverColor;
+        GetComponent<MeshRenderer>().enabled = true;
         //else
         //    rend.material.color = startColor;
         GetComponent<NavMeshObstacle>().enabled = true;
